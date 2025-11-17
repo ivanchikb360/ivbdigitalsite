@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://ivbdigital.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "IVB Digital - Lead Generation & Web Design for Service Businesses",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: "IVB Digital | Lead Generation & Web Design for Service Businesses",
     description:
       "We help service businesses generate more qualified leads and booked consultations through paid media, funnels, landing pages, and professional web design.",
-    images: ["/og-image.png"],
+    images: ["https://ivbdigital.com/og-image.png"],
   },
   alternates: {
     canonical: "https://ivbdigital.com",
