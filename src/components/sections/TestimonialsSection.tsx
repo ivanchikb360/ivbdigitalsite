@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ui/ScrollReveal";
+
 const testimonials = [
   {
     quote:
@@ -29,46 +31,51 @@ export default function TestimonialsSection() {
       className="scroll-mt-24 bg-white py-24 sm:py-28 lg:py-32"
     >
       <div className="mx-auto w-full max-w-6xl px-4 md:px-8">
-        <div className="max-w-2xl">
+        <ScrollReveal className="max-w-2xl space-y-6">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#6B46C1]">
             Testimonials
           </p>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-[#171717] sm:text-4xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-[#171717] sm:text-4xl">
             Funnels our clients are proud to show off.
           </h2>
-          <p className="mt-4 text-base text-[#4a4a4a] sm:text-lg">
+          <p className="text-base text-[#4a4a4a] sm:text-lg">
             Clean design, fast performance, and a smooth process—every time.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <blockquote
+          {testimonials.map((testimonial, index) => (
+            <ScrollReveal
               key={testimonial.name}
-              className="flex h-full flex-col justify-between rounded-3xl border border-zinc-200 bg-[#f9f9fb] p-8 text-[#4a4a4a]"
+              delay={index * 120}
+              className="h-full"
             >
-              <p className="text-base leading-relaxed">"{testimonial.quote}"</p>
-              <footer className="mt-6 text-sm text-[#171717]">
-                <p className="font-semibold">{testimonial.name}</p>
-                <p className="text-[#6b6b6b]">
-                  {testimonial.website ? (
-                    <>
-                      Owner of{" "}
-                      <a
-                        href={testimonial.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#6B46C1] transition-colors hover:text-[#4B2D9C]"
-                      >
-                        {testimonial.role.replace("Owner of ", "")}
-                      </a>
-                    </>
-                  ) : (
-                    testimonial.role
-                  )}
+              <blockquote className="flex h-full flex-col justify-between rounded-3xl border border-zinc-200 bg-[#f9f9fb] p-8 text-[#4a4a4a]">
+                <p className="text-base leading-relaxed">
+                  “{testimonial.quote}”
                 </p>
-              </footer>
-            </blockquote>
+                <footer className="mt-6 text-sm text-[#171717]">
+                  <p className="font-semibold">{testimonial.name}</p>
+                  <p className="text-[#6b6b6b]">
+                    {testimonial.website ? (
+                      <>
+                        Owner of{" "}
+                        <a
+                          href={testimonial.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#6B46C1] transition-colors hover:text-[#4B2D9C]"
+                        >
+                          {testimonial.role.replace("Owner of ", "")}
+                        </a>
+                      </>
+                    ) : (
+                      testimonial.role
+                    )}
+                  </p>
+                </footer>
+              </blockquote>
+            </ScrollReveal>
           ))}
         </div>
       </div>
