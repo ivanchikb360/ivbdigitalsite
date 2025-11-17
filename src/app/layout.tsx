@@ -17,40 +17,45 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ivbdigital.com"),
   title: {
-    default: "IVB Digital | B2B Digital Marketing Agency",
+    default:
+      "IVB Digital | Lead Generation & Web Design for Service Businesses",
     template: "%s | IVB Digital",
   },
   description:
-    "IVB Digital is a B2B digital marketing agency helping growth-minded teams build trust, accelerate pipeline, and convert demand through modern web experiences.",
+    "We help service-based businesses generate more qualified leads and booked consultations through paid media, high-converting landing pages, funnels, SEO, automation, and professional web design.",
   keywords: [
-    "B2B marketing agency",
-    "digital marketing strategy",
-    "demand generation",
-    "growth marketing",
+    "lead generation for service businesses",
+    "service business marketing",
+    "web design for service businesses",
+    "funnel design",
+    "landing page design",
+    "PPC for service businesses",
+    "local SEO",
+    "marketing automation",
     "IVB Digital",
   ],
   openGraph: {
-    title: "IVB Digital | B2B Digital Marketing Agency",
+    title: "IVB Digital | Lead Generation & Web Design for Service Businesses",
     description:
-      "Partner with IVB Digital to architect data-backed marketing experiences that convert enterprise buyers.",
+      "We generate qualified leads and booked consultations for service businesses through paid media, high-converting landing pages, funnels, SEO, and automation.",
     url: "https://ivbdigital.com",
     siteName: "IVB Digital",
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "IVB Digital - B2B Digital Marketing Agency",
+        alt: "IVB Digital - Lead Generation & Web Design for Service Businesses",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "IVB Digital | B2B Digital Marketing Agency",
+    title: "IVB Digital | Lead Generation & Web Design for Service Businesses",
     description:
-      "We design data-driven marketing systems that build trust and accelerate revenue for B2B teams.",
-    images: ["/og-image.jpg"],
+      "We help service businesses generate more qualified leads and booked consultations through paid media, funnels, landing pages, and professional web design.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://ivbdigital.com",

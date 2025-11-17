@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "IVB Digital brand preview",
@@ -37,9 +37,9 @@ const organizationSchema = {
   "@type": "Organization",
   name: "IVB Digital",
   url: "https://ivbdigital.com",
-  logo: "https://ivbdigital.com/og-image.jpg",
+  logo: "https://ivbdigital.com/og-image.png",
   description:
-    "IVB Digital is a B2B digital marketing agency partnering with growth-minded teams to design data-driven customer experiences.",
+    "IVB Digital helps service-based businesses generate more qualified leads and booked consultations through paid media, high-converting landing pages, funnels, SEO, automation, and professional web design.",
   sameAs: [
     "https://www.linkedin.com/company/ivbdigital",
     "https://www.twitter.com/ivbdigital",
