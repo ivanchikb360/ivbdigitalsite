@@ -21,9 +21,20 @@ export default function Footer() {
       <div className="mx-auto grid w-full max-w-6xl gap-12 px-4 py-16 md:grid-cols-2 md:px-8">
         <div className="space-y-6">
           <div>
-            <span className="text-lg font-semibold tracking-tight text-[#171717]">
-              IVB Digital
-            </span>
+            <div className="flex flex-col">
+              <span
+                className="text-xl font-bold tracking-tight text-[#171717]"
+                style={{
+                  fontFamily:
+                    '"Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                }}
+              >
+                IVB DIGITAL
+              </span>
+              <span className="mt-1 text-xs font-normal tracking-wide text-[#4a4a4a]">
+                Innovate. Visualize. Build.
+              </span>
+            </div>
             <p className="mt-4 max-w-sm text-sm text-[#4a4a4a]">
               We help service-based businesses generate more qualified leads and
               booked consultations through professional web design, high-converting
