@@ -1,0 +1,398 @@
+# IVB Digital - Design System & Architecture Guidelines
+
+## Brand Identity
+
+- **Company**: IVB Digital
+- **Type**: B2B Agency Website
+- **Primary Purpose**: Demonstrate expertise, professionalism, and credibility
+- **Target Audience**: B2B companies (marketing and revenue teams) seeking marketing services
+
+## Services Offered
+
+- **Strategy & Consulting**: GTM strategy, positioning, messaging, analytics strategy
+- **Performance Marketing**: PPC (Google, LinkedIn), paid social, retargeting
+- **Social & Content**: Organic social, content production, thought leadership enablement
+- **Creative**: Brand and campaign design, ad creative, motion/interactive
+- **Web Development**: Next.js/React, design systems, CRO, CMS integration
+- **SEO**: Technical SEO, on-page optimization, content strategy
+- **Analytics & RevOps**: Tracking, dashboards, attribution, automation
+
+## Color Palette
+
+- **White**: Primary background color (#FFFFFF)
+- **Black**: Primary text color (#000000 or #171717)
+- **Royal Purple**: Accent/brand color (#6B46C1 or #7C3AED - adjust as needed)
+- **Usage**: Use white space liberally. Purple should be used sparingly for CTAs, highlights, and key interactive elements.
+
+## Design Principles
+
+### Minimalism
+
+- Clean, uncluttered layouts
+- Generous white space is essential - never feel cramped
+- Remove unnecessary elements
+- Focus on clarity and readability
+
+### White Space
+
+- Use generous padding and margins (minimum 2rem/32px between major sections)
+- Sections should breathe - allow content to stand alone
+- White space is a design element, not empty space
+- Mobile: Maintain white space even on smaller screens (minimum 1rem/16px)
+
+### Typography
+
+- Use clean, modern sans-serif fonts
+- Large, readable headings
+- Generous line-height for readability (minimum 1.6)
+- Clear hierarchy: H1 > H2 > H3 > Body
+- Avoid decorative fonts - keep it professional
+
+### Visual Hierarchy
+
+- Use size, weight, and color to establish hierarchy
+- Purple accents should guide the eye to important elements
+- Black text on white background for maximum readability
+- Subtle use of purple for emphasis only
+
+## Architecture & File Structure
+
+### Component-Based Architecture
+
+- **Every page** is composed of multiple components
+- **Each component** represents a distinct section of the page
+- **Each section component** lives in its own file
+- **All section components** are located in the `src/components/sections/` directory
+
+### File Structure Pattern
+
+```
+src/
+  app/
+    [page]/
+      page.tsx          # Page file that imports and arranges sections
+  components/
+    common/             # Site-wide common components (navbar, footer, etc.)
+      Navbar.tsx
+      Footer.tsx
+    sections/           # All section components live here
+      HeroSection.tsx
+      AboutSection.tsx
+      ServicesSection.tsx
+      etc.
+    ui/                 # Reusable UI components (buttons, cards, etc.)
+      Button.tsx
+      Card.tsx
+      etc.
+```
+
+### Component Naming Convention
+
+- Section components: `[Name]Section.tsx` (e.g., `HeroSection.tsx`, `ServicesSection.tsx`)
+- UI components: PascalCase (e.g., `Button.tsx`, `Card.tsx`)
+- Use descriptive, semantic names
+
+### Page Structure Pattern
+
+```tsx
+// Example: src/app/about/page.tsx
+import HeroSection from "@/components/sections/HeroSection";
+import AboutSection from "@/components/sections/AboutSection";
+import CtaSection from "@/components/sections/CtaSection";
+
+export default function AboutPage() {
+  return (
+    <main>
+      <HeroSection />
+      <AboutSection />
+      <CtaSection />
+    </main>
+  );
+}
+```
+
+### Section Component Pattern
+
+```tsx
+// Example: src/components/sections/HeroSection.tsx
+export default function HeroSection() {
+  return <section className="py-20 px-4">{/* Section content */}</section>;
+}
+```
+
+## Spacing System
+
+- Use Tailwind's spacing scale consistently
+- Section padding: `py-16` to `py-32` (64px to 128px vertical)
+- Container padding: `px-4` to `px-8` (16px to 32px horizontal)
+- Gap between elements: `gap-8` to `gap-16` (32px to 64px)
+- Minimum spacing between sections: `py-16` (64px)
+
+## Component Guidelines
+
+### Buttons
+
+- Primary: Royal purple background, white text
+- Secondary: White background, royal purple border and text
+- Use generous padding: `px-8 py-4` minimum
+- Rounded corners: `rounded-lg` or `rounded-xl`
+- Hover states: Subtle opacity or scale changes
+
+### Cards
+
+- White background with subtle shadow or border
+- Generous padding: `p-6` to `p-8`
+- Rounded corners: `rounded-xl`
+- Ample spacing between cards: `gap-6` to `gap-8`
+
+### Typography Scale
+
+- H1: `text-4xl` to `text-6xl` (36px to 60px)
+- H2: `text-3xl` to `text-4xl` (30px to 36px)
+- H3: `text-2xl` to `text-3xl` (24px to 30px)
+- Body: `text-base` to `text-lg` (16px to 18px)
+- Small: `text-sm` (14px)
+
+## Mobile Optimization
+
+**Critical**: Every page must be fully optimized for mobile devices. Mobile traffic is essential for B2B sites.
+
+### Mobile-First Approach
+
+- Design for mobile first, then enhance for larger screens
+- Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
+- Test on actual devices, not just browser dev tools
+- Ensure touch targets are at least 44x44px (minimum tap size)
+
+### Responsive Layout Guidelines
+
+- Stack sections vertically on mobile
+- Use responsive typography: `text-4xl md:text-5xl lg:text-6xl`
+- Maintain white space on all screen sizes (minimum 1rem/16px on mobile)
+- Horizontal padding: `px-4` on mobile, `px-8` on desktop
+- Vertical padding: `py-12` on mobile, `py-20` on desktop
+
+### Mobile-Specific Considerations
+
+- **Navigation**: Use hamburger menu on mobile, full nav on desktop
+- **Images**: Optimize for mobile bandwidth, use Next.js Image with responsive sizes
+- **Forms**: Full-width inputs on mobile, constrained width on desktop
+- **Buttons**: Full-width on mobile (`w-full md:w-auto`), auto-width on desktop
+- **Text**: Maximum line length of 75 characters on desktop, full width on mobile
+- **Tables**: Consider horizontal scroll or card layout on mobile
+- **Videos**: Ensure responsive embed containers
+
+### Performance on Mobile
+
+- Minimize JavaScript bundle size
+- Use code splitting for heavy components
+- Optimize images for mobile (use `srcset` and `sizes`)
+- Lazy load below-the-fold content
+- Minimize render-blocking resources
+- Target Lighthouse mobile score of 90+
+
+### Touch Interactions
+
+- Ensure all interactive elements are easily tappable
+- Add adequate spacing between clickable elements
+- Use touch-friendly hover states (consider tap states)
+- Test swipe gestures where appropriate
+- Avoid hover-only interactions on mobile
+
+## SEO Optimization
+
+**Critical**: What good is a website if no one can find it? SEO is non-negotiable.
+
+### Technical SEO
+
+- **Meta Tags**: Every page must have unique `<title>` and `<meta name="description">`
+- **Open Graph**: Include OG tags for social sharing (title, description, image, url)
+- **Structured Data**: Use JSON-LD schema markup (Organization, WebSite, BreadcrumbList, Article, etc.)
+- **Canonical URLs**: Set canonical tags to prevent duplicate content
+- **Robots.txt**: Properly configured for search engine crawling
+- **Sitemap.xml**: Generate and submit XML sitemap
+- **HTTPS**: Ensure SSL certificate is active
+- **Page Speed**: Target Core Web Vitals (LCP < 2.5s, FID < 100ms, CLS < 0.1)
+
+### Next.js SEO Implementation
+
+```tsx
+// Example: src/app/about/page.tsx
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About IVB Digital | Digital Marketing Agency",
+  description:
+    "Learn about IVB Digital, a leading B2B digital marketing agency specializing in...",
+  openGraph: {
+    title: "About IVB Digital | Digital Marketing Agency",
+    description: "Learn about IVB Digital...",
+    images: ["/og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://ivbdigital.com/about",
+  },
+};
+```
+
+### Content SEO
+
+- **Keyword Research**: Target relevant B2B marketing keywords
+- **Heading Structure**: Use proper H1-H6 hierarchy (one H1 per page)
+- **Internal Linking**: Link between related pages and sections
+- **Alt Text**: Descriptive alt text for all images
+- **URL Structure**: Clean, descriptive URLs (`/services/digital-marketing` not `/page?id=123`)
+- **Content Quality**: Original, valuable content that demonstrates expertise
+- **Content Length**: Aim for comprehensive content (1000+ words for main pages)
+
+### On-Page SEO Checklist
+
+- ✅ Unique, keyword-rich title tag (50-60 characters)
+- ✅ Compelling meta description (150-160 characters)
+- ✅ One H1 tag per page with primary keyword
+- ✅ Proper heading hierarchy (H2, H3, etc.)
+- ✅ Keyword usage in first paragraph
+- ✅ Internal links to related content
+- ✅ External links to authoritative sources
+- ✅ Image alt attributes with relevant keywords
+- ✅ Fast page load time (< 3 seconds)
+- ✅ Mobile-friendly design
+- ✅ Schema markup for rich snippets
+
+### Local SEO (if applicable)
+
+- Google Business Profile optimization
+- NAP (Name, Address, Phone) consistency
+- Local keywords in content
+- Location pages if multiple locations
+
+### SEO Best Practices
+
+- **Semantic HTML**: Use proper HTML5 semantic elements (`<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<footer>`)
+- **Accessibility**: SEO and accessibility go hand-in-hand
+- **Mobile-First Indexing**: Google primarily uses mobile version for indexing
+- **Page Speed**: Fast sites rank better
+- **Fresh Content**: Regularly update and add new content
+- **User Experience**: Low bounce rate signals quality to search engines
+- **Backlinks**: Quality over quantity (though this is more marketing than dev)
+
+### SEO Tools & Monitoring
+
+- Set up Google Search Console
+- Set up Google Analytics 4
+- Monitor Core Web Vitals
+- Track keyword rankings
+- Monitor crawl errors
+- Review search performance regularly
+
+### Common SEO Mistakes to Avoid
+
+- ❌ Duplicate content across pages
+- ❌ Missing or duplicate title tags
+- ❌ Poor URL structure
+- ❌ Slow page load times
+- ❌ Not mobile-friendly
+- ❌ Missing alt text on images
+- ❌ Broken internal links
+- ❌ Thin or duplicate content
+- ❌ Keyword stuffing
+- ❌ Ignoring Core Web Vitals
+
+## Performance
+
+- Optimize images (use Next.js Image component)
+- Lazy load sections below the fold when appropriate
+- Keep components focused and single-purpose
+- Use TypeScript for type safety
+
+## Accessibility
+
+- Maintain proper heading hierarchy
+- Use semantic HTML elements
+- Ensure sufficient color contrast (black on white, purple on white)
+- Add alt text to all images
+- Keyboard navigation support
+- ARIA labels where appropriate
+
+## Code Quality
+
+- Use TypeScript for all components
+- Export components as default exports
+- Use functional components with proper typing
+- Keep components focused and reusable
+- Add JSDoc comments for complex components
+
+## Purple Color Usage
+
+- Use purple for:
+  - Primary CTAs and buttons
+  - Links and hover states
+  - Accent highlights
+  - Brand elements (logo, icons)
+- Avoid:
+  - Large purple backgrounds (use sparingly)
+  - Purple text on dark backgrounds
+  - Overuse that competes with content
+
+## Content Strategy
+
+- Focus on demonstrating expertise
+- Use case studies and testimonials
+- Show process and methodology
+- Clear value propositions
+- Professional, confident tone
+- Avoid jargon - be clear and direct
+
+## Animation & Interactions
+
+- Subtle, purposeful animations only
+- Smooth transitions (200-300ms)
+- Avoid distracting motion
+- Use for: hover states, scroll reveals, micro-interactions
+- Keep it minimal and professional
+
+## Do's and Don'ts
+
+### Do:
+
+- ✅ Use generous white space
+- ✅ Keep layouts clean and minimal
+- ✅ Use purple sparingly for accents
+- ✅ Create separate section components
+- ✅ Maintain consistent spacing
+- ✅ Focus on readability
+- ✅ Show expertise through content
+- ✅ Test on mobile devices (not just dev tools)
+- ✅ Optimize for mobile performance
+- ✅ Add SEO metadata to every page
+- ✅ Use semantic HTML elements
+- ✅ Optimize images for web
+- ✅ Test page speed and Core Web Vitals
+
+### Don't:
+
+- ❌ Clutter layouts
+- ❌ Overuse purple color
+- ❌ Create cramped sections
+- ❌ Mix concerns in components
+- ❌ Use decorative fonts
+- ❌ Add unnecessary animations
+- ❌ Compromise white space for content
+- ❌ Ignore mobile optimization
+- ❌ Skip SEO metadata
+- ❌ Use generic or missing alt text
+- ❌ Create slow-loading pages
+- ❌ Forget to test on actual devices
+
+## Development Workflow
+
+1. Create page file in `src/app/[route]/page.tsx`
+2. Add SEO metadata (title, description, OG tags) to page file
+3. Create section components in `src/components/sections/`
+4. Import and arrange sections in page file
+5. Style with Tailwind using design system guidelines
+6. **Mobile Testing**: Test on actual mobile devices and responsive breakpoints
+7. **SEO Check**: Verify meta tags, heading hierarchy, alt text, and structured data
+8. **Performance**: Test page speed and Core Web Vitals (Lighthouse)
+9. Ensure accessibility standards
+10. Validate HTML semantics and proper heading structure
