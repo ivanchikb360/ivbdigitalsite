@@ -33,17 +33,21 @@ export default function Button(props: ButtonProps) {
   const { children, className = "", variant = "primary", ...rest } = props;
   const styles = `${baseStyles} ${variantStyles[variant]} ${className}`.trim();
 
-  if ("href" in rest && rest.href) {
+  if ("href" in rest && rest.href !== undefined) {
     const { href, ...linkProps } = rest;
+    // Exclude button-specific props from link props
+    const { type, ...anchorProps } = linkProps as any;
     return (
-      <Link href={href} className={styles} {...linkProps}>
+      <Link href={href} className={styles} {...anchorProps}>
         {children}
       </Link>
     );
   }
 
+  // Exclude anchor-specific props from button props
+  const { href, target, rel, download, ...buttonProps } = rest as any;
   return (
-    <button className={styles} {...rest}>
+    <button type="button" className={styles} {...buttonProps}>
       {children}
     </button>
   );
