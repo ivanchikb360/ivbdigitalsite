@@ -25,9 +25,9 @@ export default function Footer() {
               IVB Digital
             </span>
             <p className="mt-4 max-w-sm text-sm text-[#4a4a4a]">
-              A B2B growth partner for ambitious marketing teams. We combine
-              strategy, design, and data to engineer digital experiences that
-              build trust and drive revenue.
+              We help service-based businesses generate more qualified leads and
+              booked consultations through professional web design, high-converting
+              funnels, and strategic marketing systems.
             </p>
           </div>
         </div>
