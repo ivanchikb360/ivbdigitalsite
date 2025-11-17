@@ -17,14 +17,15 @@ export default function HeroSection() {
           </ScrollReveal>
           <ScrollReveal delay={100}>
             <h1 className="text-4xl font-semibold tracking-tight text-[#171717] sm:text-5xl lg:text-6xl">
-              We generate qualified leads and booked consultations.
+              We build systems that generate qualified leads and booked
+              consultations.
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <p className="text-lg text-[#4a4a4a] sm:text-xl">
-              Paid search & social, high-converting landing pages, offers and
-              funnels, local/service SEO, and marketing automation—working
-              together to turn clicks into clients.
+              Complete marketing systems—paid search & social, high-converting
+              landing pages, funnels, SEO, and automation—that your team owns
+              and operates long after we're gone.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={300}>
