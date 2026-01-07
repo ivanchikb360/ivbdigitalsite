@@ -1,11 +1,9 @@
 import Link from "next/link";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Approach", href: "#approach" },
-  { label: "Results & Impact", href: "#results-impact" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Industries We Serve", href: "#industries" },
+  { label: "Services", href: "/#services" },
+  { label: "Our Approach", href: "/#approach" },
+  { label: "Industries We Serve", href: "/#industries" },
 ];
 
 const contactLinks = [

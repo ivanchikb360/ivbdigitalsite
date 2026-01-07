@@ -46,8 +46,9 @@ export default function Button(props: ButtonProps) {
 
   // Exclude anchor-specific props from button props
   const { href, target, rel, download, ...buttonProps } = rest as any;
+  const buttonType = buttonProps.type || "button";
   return (
-    <button type="button" className={styles} {...buttonProps}>
+    <button type={buttonType} className={styles} {...buttonProps}>
       {children}
     </button>
   );

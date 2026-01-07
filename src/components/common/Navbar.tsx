@@ -5,9 +5,9 @@ import Link from "next/link";
 import Button from "@/components/ui/Button";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Our Approach", href: "#approach" },
-  { label: "Industries We Serve", href: "#industries" },
+  { label: "Services", href: "/#services" },
+  { label: "Our Approach", href: "/#approach" },
+  { label: "Industries We Serve", href: "/#industries" },
 ];
 
 export default function Navbar() {
@@ -95,13 +95,12 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="hidden md:block">
-          <a
-            href="#contact"
-            onClick={handleSmoothScroll}
+          <Link
+            href="/#contact"
             className="inline-flex items-center justify-center rounded-lg bg-[#6B46C1] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#4B2D9C] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6B46C1]"
           >
-            Request Audit
-          </a>
+            Book a Call
+          </Link>
         </div>
         {/* Mobile Dropdown Menu */}
         <div
@@ -124,13 +123,13 @@ export default function Navbar() {
               ))}
             </div>
             <div className="mt-4 px-4">
-              <a
-                href="#contact"
-                onClick={handleSmoothScroll}
+              <Link
+                href="/#contact"
                 className="flex w-full items-center justify-center rounded-lg bg-[#6B46C1] px-6 py-4 text-base font-semibold text-white transition-all active:scale-[0.98] hover:bg-[#4B2D9C] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6B46C1]"
+                onClick={closeMenu}
               >
-                Request Audit
-              </a>
+                Book a Call
+              </Link>
             </div>
           </nav>
         </div>
